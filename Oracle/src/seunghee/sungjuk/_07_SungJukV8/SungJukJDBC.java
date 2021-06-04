@@ -1,4 +1,4 @@
-package sungjuk._07_SungJukV8;
+package seunghee.sungjuk._07_SungJukV8;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,11 +7,11 @@ import java.sql.ResultSet;
 
 public class SungJukJDBC {
 	
-	public String insertSQL = "insert into SungJuk (name, kor, eng, mat, tot, mean, grd) values (?,?,?,?,?,?,?)";
-	public String selectSQL = "select no, name, kor, eng, mat, regdate from Sungjuk order by no";
-	public String selectOneSQL = "select * from Sungjuk where no = ?";
-	public String updateSQL = "update Sungjuk set kot=?, eng=? ,mat=?, tot=?, mean=?, grd=?, regdate=sysdate() where no=? ";
-	public String deleteSQL = "delete from Sungjuk where no = ?";
+	public String insertSQL = "insert into SungJuk (sno, name, kor, eng, mat, tot, mean, grd) values (sj_seq.nextval,?,?,?,?,?,?,?)";
+	public String selectSQL = "select sno, name, kor, eng, mat, regdate from Sungjuk order by sno";
+	public String selectOneSQL = "select * from Sungjuk where sno = ?";
+	public String updateSQL = "update Sungjuk set kor=?, eng=? ,mat=?, tot=?, mean=?, grd=?, regdate=sysdate where sno=?";
+	public String deleteSQL = "delete from Sungjuk where sno = ?";
 	
 	public Connection makeConn() {
 		Connection conn = null;

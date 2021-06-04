@@ -1,4 +1,4 @@
-package sungjuk._07_SungJukV8;
+package seunghee.sungjuk._07_SungJukV8;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -44,8 +44,8 @@ public class SungJukServiceImpl implements SungJukService {
 	
 	@Override
 	public void computeSungJuk(SungJukVO person) {
-		person.setSum(person.getKor() + person.getEng() + person.getMat());
-		person.setMean(person.getSum()/3.0);
+		person.setTot(person.getKor() + person.getEng() + person.getMat());
+		person.setMean(person.getTot()/3.0);
 		
 		switch((int) person.getMean()/10) {
 			case 10 : 
@@ -64,7 +64,7 @@ public class SungJukServiceImpl implements SungJukService {
 		
 		ArrayList<SungJukVO> persons = dao.selectSungJuk();
 		for(SungJukVO person : persons) {
-			String result = String.format(fmt, person.getNo(), person.getName(), person.getKor(), person.getEng(), person.getMat(), person.getRegdate());
+			String result = String.format(fmt, person.getSno(), person.getName(), person.getKor(), person.getEng(), person.getMat(), person.getRegdate());
 			sb.append(result);
 		}
 		System.out.println(sb.toString());
@@ -72,13 +72,13 @@ public class SungJukServiceImpl implements SungJukService {
 
 	@Override
 	public void showAllSungJuk() {
-		System.out.print("상세 조회할 학생의 번호를 입력해 주세요");
+		System.out.print("상세 조회할 학생의 번호를 입력해 주세요 : ");
 		String target = sc.nextLine();
 		
 		SungJukVO person = dao.selectOneSungJuk(target);
 		String fmt = "번호 : %2d, 이름 : %s, 국어 : %d, 영어 : %d, 수학 : %d, "
 				+ "총점 : %d, 평균 : %.2f, 학점 : %s, 등록일 : %s\n";
-		String result = String.format(fmt, person.getNo(), person.getName(), person.getKor(), person.getEng(), person.getMat(), person.getSum(),
+		String result = String.format(fmt, person.getSno(), person.getName(), person.getKor(), person.getEng(), person.getMat(), person.getTot(),
 				person.getMean(), person.getGrd(), person.getRegdate());
 		System.out.println(result);
 	}
@@ -88,7 +88,7 @@ public class SungJukServiceImpl implements SungJukService {
 		SungJukVO person = new SungJukVO();
 		
 		System.out.print("수정할 학생의 번호를 입력해 주세요 : ");
-		person.setNo(Integer.parseInt(sc.nextLine()));
+		person.setSno(Integer.parseInt(sc.nextLine()));
 		System.out.print("국어 점수를 입력해 주세요 : ");
 		person.setKor(Integer.parseInt(sc.nextLine()));
 		System.out.print("영어 점수를 입력해 주세요 : ");

@@ -1,13 +1,13 @@
-package sungjuk._07_SungJukV8;
+package seunghee.sungjuk._07_SungJukV8;
 
 public class SungJukVO {
 	
-	private int no;
+	private int sno;
 	private String name;
 	private int kor;
 	private int eng;
 	private int mat;
-	private int sum;
+	private int tot;
 	private double mean;
 	private char grd;
 	private String regdate;
@@ -21,8 +21,8 @@ public class SungJukVO {
 	    this.mat = mat;
 	}  
 	
-	public SungJukVO(int no, String name, int kor, int eng, int mat, String regdate) {
-		this.no = no;
+	public SungJukVO(int sno, String name, int kor, int eng, int mat, String regdate) {
+		this.sno = sno;
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;
@@ -30,25 +30,25 @@ public class SungJukVO {
 		this.regdate = regdate;
 	}
 	
-	public SungJukVO(int no, String name, int kor, int eng, int mat, int sum, double mean, char grd, String regdate) {
+	public SungJukVO(int sno, String name, int kor, int eng, int mat, int tot, double mean, char grd, String regdate) {
 		super();
-		this.no = no;
+		this.sno = sno;
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;
 		this.mat = mat;
-		this.sum = sum;
+		this.tot = tot;
 		this.mean = mean;
 		this.grd = grd;
 		this.regdate = regdate;
 	}
 
 	
-	public int getNo() {
-		return no;
+	public int getSno() {
+		return sno;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setSno(int sno) {
+		this.sno = sno;
 	}
 	public String getRegdate() {
 		return regdate;
@@ -80,11 +80,11 @@ public class SungJukVO {
 	public void setMat(int mat) {
 		this.mat = mat;
 	}
-	public int getSum() {
-		return sum;
+	public int getTot() {
+		return tot;
 	}	
-	public void setSum(int sum) {
-		this.sum = sum;
+	public void setTot(int tot) {
+		this.tot = tot;
 	}
 	public double getMean() {
 		return mean;

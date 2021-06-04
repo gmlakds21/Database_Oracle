@@ -1,4 +1,4 @@
-package sungjuk._07_SungJukV8;
+package seunghee.sungjuk._07_SungJukV8;
 
 public interface SungJukService {
 	
